@@ -1,0 +1,22 @@
+<ui>
+
+    <li>
+        <p>Name: {{ products.name_product }}</p>
+        <p>Category: {{ products.category }}</p>
+        <p>Price: {{ products.price }}</p>
+        <p>Description: {{ products.description }}</p>
+        {% if products.image %}
+            <p><img src="{{ products.image.url }}"></p>
+        {% else %}
+            <p>No image</p>
+        {% endif %}
+        <p>Active: {{ products.active }}</p>
+        <p>Number: {{ products.phone_number }}</p>
+        <p>Date: {{ products.created_date }}</p>
+
+    </li>
+
+</ui>
+
+<button><a href="{% url 'product_update' products.pk %}"> Update </a></button>
+<button><a href="{% url 'product_delete' products.pk %}"> Delete </a></button>

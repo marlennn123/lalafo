@@ -1,0 +1,22 @@
+<form method="GET">
+    <select name="category">
+        <option value="">All Categories</option>
+        {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.title }}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Filter</button>
+</form>
+
+
+<ui>
+    {% for product in products %}
+    <li>
+        <p><a href="{% url 'product_detail' product.pk %}">{{product.name_product}}</a></p>
+        <p>Date: {{product.created_date}}</p>
+    </li>
+    {% endfor %}
+</ui>
+
+<button><a href="{% url 'product_create' %}"> Create </a></button>
